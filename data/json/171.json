@@ -1,0 +1,25 @@
+{
+    "classes": [
+        "NAME",
+        "EMAIL"
+    ],
+    "annotations": [
+        [
+            "TRẦN CƯƠNG TRỰC 25/76 Bui Quang La Street, 12 Ward, Go Vap District, Ho Chi Minh City, Vietnam. Mobile: 0933941274 Email: cuongtruc.tran@gmail.com Skype: cuongtruc.tran Career Objective  To use my skills and enthusiasm in a role as a developer especially in Android and Web. Work Experience  Web Developer / Freelancer (3/2010 – 8/2011).  PSD to HTML projects with W3C validation.  Received projects through my leader. My task is to build a static website from Photoshop web layouts that is pre-designed with W3C Validation.  I developed various websites from Online Ticket Seller (Project SuperStar Ticket), Wedding Invitation website (Project Nick & Juliet) to Product Introduction Website (Project Ebeam)…  I used Photoshop CS4, HTML, CSS and JQuery for slicing and building website.  Web Developer / Part time – Bridge System Company (3/2011 – 6/2011).  Wordpress theme and plugin developing.  Developing a plugin for Japanese Real Estate Company by using Wordpress API, MySQL, Ajax and PHP.  This plugin allows users to perform complex search with a lot of options for narrowing the results based on their needs.  Fixing bugs from previous projects.  Web Developer / Goodland Company job challenge.  XCart theme developing. (2 weeks)  This project called GlobalNet, a project that I received after taking an interview with CEO of Goodland Company for part-time web developer.  I developed this theme from pre-designed PSD and my task is research about XCart API and finish the theme in two weeks.  I finished it in one and a half week. It met the expectation of CEO but I gave up the offer due to school busy.  Personal Projects (Web and Mobile)  Friend’s portfolio (Jacy’s portfolio). (1 month)  My friend is a designer and she needed a unique portfolio for her career. I decided to help her by building a website based on her pre-designed layout.  I used PHP CodeIgniter framework for building website from scratch (both front page and admin page). Animation effects are hand coded by using just only Jquery, image upload section is developed with Plupload script. Admin page’s template is used by free template that available on the internet for saving time.  SMS Merge (Android Application). (1 month)  This project is developed for improving my knowledge about Android and based on my needs. The purpose of this project is I want to merge two threads of SMS into one for keeping and later use for other project.  I used Android Sherlock and a lot of techniques for backward compatible.  Personal Portfolio. (1 month)  This portfolio for showing off some my previous projects.  I made this website by developing a theme for wordpress and a lot of customizations for my projects management in admin backend. I used Twitter Bootstrap for scaffolding the website so it can be displayed well on both desktop and mobile, Isotope for project filtering and FlexSlider for Project Gallery.  Java web application developer – Axon Active Vietnam (6/2013 until now).  I’m a part of my team working in Agile Environment.  Technical supporting for my teammates.  We are working on a big project by using Grails Framework and Scrum methodology. Technical Skills Programming Languages and Technologies  Understanding of OOP & Some Design Patterns.  Java, HTML/CSS/Jquery, XML, PHP, CodeIgniter Framework, Wordpress, Android SDK. Databases  MySQL, SQLite. Other Skills  Ability to self-training and eager to learn new technologies.  Ability to work independently as well as a member in a team.  Ability to use English effectively. Career Highlights  Leading a team of four in two school projects. Academic Education & Certifications  BSc Computing - The University of The Greenwich (10/2009 – 1/2013)  First two years overall score: 7.8  Test Of English as International Communication (8/2012)  Total Score: 915 / 990 Previous Works  Reference: https://www.dropbox.com/sh/tuppr0n7ajf1mst/m-rE7fkoFz",
+            {
+                "entities": [
+                    [
+                        0,
+                        15,
+                        "NAME"
+                    ],
+                    [
+                        122,
+                        146,
+                        "EMAIL"
+                    ]
+                ]
+            }
+        ]
+    ]
+}

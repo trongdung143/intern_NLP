@@ -1,0 +1,25 @@
+{
+    "classes": [
+        "NAME",
+        "EMAIL"
+    ],
+    "annotations": [
+        [
+            "Luong Ngo Date of Birth: 25th April 1989 Address: 26th Diep Minh Chau, Tan Son Nhi, Tan Phu, HCM Mobile: 0995455802 E-mail: ngocongluong@gmail.com Profile: I’m Technical Architect and full-stack developer, hands-on developer over 5 year’s experience working on a variety of projects from conception to release. I have a passion for develop new products, feel happy when my products is useful and used by many users. My approach is create a product that will be used by over 1.000.000 concurrent users and to be a good manager. I am a confident communicator and am comfortable working either independently or as part of a team with highly responsibility. In 10-2015, I was lead team Windeliv win 2nd place over 450 contestants team at “Hackathon – Job search innovation” held by VietnamWork with product named CBOX. CBOX is an AI - a career assistant, using machine learning and natural language processing to ask and get information of users through chat and create CV for them. Skills Summary:  Javascript, HTML5, CSS, ReactJS, Angularjs, Nodejs (Express, Loopback, SailsJS, …), …  JAVA EE (Maven, JSF, JSP, …)  Goovy on Grail  PHP – Phalcon, Codeinigter, …  eJabber XMPP Server (Messaging server for realtime chat like Whatsapp, zalo, v.v…)  Android (Android Studio, Graddle, GCM, Google Maps, Facebook SDK, XMPP - aSMACK…)  iOS (XCode, Cocoa pods, core data, AFNetworking, APNS, WebSocket, XMPPframework, v.v..)  Ubuntu 14.04 server – installed LAMP (apache, mysql, php, …), installed NGINX, security, …  MySql, Oracle database server, Postgresql, MongoDB, Redshift, …  Source code management (Git, SVN, v.v…)  Countinous Integration (Jenkins, Bitbucket Pipeline), Docker, Vagrant.  Web Services (Restful, Soap, Graphql)  OpenAM SSO.  Microservices architecture. Education:  2007 – 2013 Ho Chi Minh University of Science Degree: Network Management. Employment History: QueenB JSC Java Developer, Team Leader April 2012 – April 2014  Took an active role in the full development life-cycle.  Worked closely with the customer to get information, business analysis, built products and fixed bugs.  Successfully built and maintained a variety of customer-facing applications.(Dong Quang’s Employee Management - ,C2 Saigon Travel Tour Management - KAPI, Tri Duc Pharmacy invoice, customer, employee management - bSell, v.v…).  From August 2013 working as Team Lead (4 members) and Project Manager.(2 Projects: Saigon Travel Tour Management - KAPI and Tri Duc Pharmacy invoice, customer, employee management - bSell).  Maintained SQL databases and servers. (MySQL & Oracle) M_SERVICE JSC Developer April 2014 – March 2015  Worked in MIS team. Took role as core member in full development life-cycle.  Fixed bug and maintained products.  Maintained SQL databases and servers. (Oracle) ANDROBEAR CO.,LTD Technical Lead, Team Leader March 2015 – March 2016  Played a crucial role in project planning by providing time estimates for completion of work.  Researched and suggested conformed technology to build products.  Undertook the responsibility of training junior developers, which involved compiling a suite of training materials.  Researched and suggested conformed technology to build products.  Lead team has 5 members include 2 web (PHP, Nodejs), 2 Mobile (1 Android, 1 iOS) and 1 designer. Also develop products as a developer.  Successful in built and release 2 products on Apple Store and Google Store: Cancer (social network for Cancer Zodiac with over 1000 users), EasyJob (Social network for instant jobs with over 15000 users). SUTRIX SOLUTION Technical Architect April 2016 - Present  Support Project Manager on technical solutions for PHP, nodejs, infrastructure.  Design system architecture for software (PHP, nodejs, infrastructure).  Analyse system architecture of enterprise software.  Setup continuous integration (Jenkins, Bitbucket Pipeline) & coding standards scanner (Sonar Qube) for projects.  Manage Team Member and Team Leader on development for project quality.  Training Team on NodeJS to help team improve their skill to work with high level technical client.  Support Team on Code Review for guaranty code quality.  Involve to projects as a senior developer to help team delivery ontime in some high workload projects.  Communicate with high level technical client and help team to understand the technical specs.  Giving technical solutions for some critical problems.  Create Technical Specs Documents. Additional Info: Preferred Work Location: Ho Chi Minh City Win 2nd Place at Hackathon 2015 held by Vietnamworks",
+            {
+                "entities": [
+                    [
+                        0,
+                        9,
+                        "NAME"
+                    ],
+                    [
+                        124,
+                        146,
+                        "EMAIL"
+                    ]
+                ]
+            }
+        ]
+    ]
+}
