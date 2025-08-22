@@ -2,7 +2,7 @@ import spacy
 
 
 def predict(text):
-    model = spacy.load("./model/ner/")
+    model = spacy.load("./model")
     doc = model(text)
     result = {"name": None, "email": None}
     for ent in doc.ents:

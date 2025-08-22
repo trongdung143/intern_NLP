@@ -22,7 +22,7 @@ def convert_pdf_folder_to_txt(pdf_folder, txt_output_folder):
         cleaned = clean_text(text)
         txt_file = txt_output_folder / (pdf_file.stem + ".txt")
         txt_file.write_text(cleaned.strip(), encoding="utf-8")
-        print(f"[✓] Đã tạo: {txt_file.name}")
+        print(f"created: {txt_file.name}")
 
 
 def convert_single_pdf_to_txt(pdf_path, txt_output_path=None):
@@ -34,7 +34,7 @@ def convert_single_pdf_to_txt(pdf_path, txt_output_path=None):
     if txt_output_path:
         txt_file = Path(txt_output_path)
         txt_file.write_text(cleaned.strip(), encoding="utf-8")
-        print(f"[✓] Đã tạo: {txt_file}")
+        print(f"created: {txt_file}")
     return cleaned
 
 

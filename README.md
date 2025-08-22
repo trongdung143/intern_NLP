@@ -10,7 +10,7 @@
 ---
 
 ## EX1 Huấn luyện Model NER bằng SPACY.
-## 1) Tóm tắt
+## 1. Tóm tắt
 
 **NER (trích xuất NAME/EMAIL)** từ CV quét PDF:
 
@@ -21,7 +21,7 @@ Kèm theo **FastAPI** để phục vụ:
 
 * `POST /extract-cv` – Thêm PDF và trả về danh sách entity (NAME/EMAIL).
 
-## 2) Cấu trúc thư mục (dự kiến)
+## 2. Cấu trúc thư mục (dự kiến)
 
 ```
 intern_NLP/
@@ -30,15 +30,16 @@ intern_NLP/
 ├─ api.py                 # FastAPI app (điểm vào uvicorn)
 ├─ pdf_to_txt.py          # tiện ích chuyển đổi PDF → TXT
 ├─ processing_data.py     # tiền xử lý dữ liệu
-├─ train.py               # train NER 
+├─ train.py               # training NER 
 ├─ predict.py             # dự đoán của model
 ├─ test.py                # test nhanh chức năng
+├─ filter.py              # phát hiện và chỉnh sửa dữ liệu
 ├─ requirements.txt       # danh sách thư viện Python
 ├─ render.yaml            # cấu hình deploy Render
 └─ README.md
 ```
 
-## 3) Chuẩn bị môi trường
+## 3. Chuẩn bị môi trường
 
 ### Yêu cầu
 
@@ -66,7 +67,7 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_lg
 ```
 
-## 4) Dữ liệu & Tiền xử lý
+## 4. Dữ liệu & Tiền xử lý
 1. **Chuyển PDF → TXT**
 
    * Đặt file PDF vào `data/resumes/`.
@@ -76,7 +77,7 @@ python -m spacy download en_core_web_lg
    * Format tập huấn luyện theo chuẩn spaCy `Example.from_dict` (`{"entities": [(start, end, label), ...]}`)
    * Lưu ra JSON/JSONL hoặc module python.
 
-## 5) Huấn luyện
+## 5. Huấn luyện
 ```bash
 import spacy
 import random
@@ -142,9 +143,6 @@ with nlp.disable_pipes(*other_pipes):
         if wait >= patience:
             print("Early stopping triggered.")
             break
-
-
-
 ```
 ## Thuật toán huấn luyện NER
 
@@ -226,6 +224,7 @@ Quy trình huấn luyện NER trong repo sử dụng **spaCy** gồm các bướ
   ```python
   examples = [Example.from_dict(nlp.make_doc(text), annotations) for text, annotations in batch]
   nlp.update(examples, drop=drop, losses=losses, sgd=optimizer)
+  ```
 
 4. **Early Stopping**  
    - Sau mỗi epoch, so sánh `current_loss` với `best_loss`.  
@@ -323,7 +322,7 @@ Early stopping triggered.
 - model tốt nhất được lưu khi loss hiện tại nhỏ hơn loss trước
 - quá trình training đã dừng ở epoch 36 sau 5 lần loss không giảm kẻ từ epoch 31.
 
-## 6) Chạy API (FastAPI)
+## 6 Chạy API (FastAPI)
 
 ```bash
 # chạy server
@@ -332,7 +331,7 @@ uvicorn api:app --reload --host 0.0.0.0 --port 8080
   truy cập http://localhost:8080
 
 
-## 7) Deploy lên ngrok
+## 7 Deploy lên ngrok
 
 ```bash
 ngrok start --all
@@ -341,6 +340,73 @@ ngrok start --all
 
 ---
 
+## 8 Vấn đề và mở rộng
+## Vấn đề còn lại
+- **Trích xuất PDF chưa ổn định**: nhiều CV là dạng scan (ảnh) → text không đọc được, phải dùng OCR.  
+- **Tên tiếng Việt đa dạng**: có dấu/không dấu, nhiều họ kép hoặc tên dài → mô hình dễ nhầm.  
+- **Email bị che dấu**: ví dụ `abc [at] gmail [dot] com` → NER thường không nhận ra.  
+- **Dữ liệu hạn chế**: chỉ annotate một phần CV, dẫn đến mô hình chưa tổng quát tốt.  
+
+## Ý tưởng mở rộng
+- **OCR (Optical Character Recognition)**:  
+  - Dùng Tesseract hoặc EasyOCR để xử lý CV dạng scan.  
+  - Kết hợp bước tiền xử lý ảnh (làm rõ chữ, xoay đúng chiều) để tăng độ chính xác.  
+  - Sau OCR vẫn cần chuẩn hoá dấu tiếng Việt (vì OCR dễ bỏ dấu).  
+
+- **Kết hợp rule + model**:  
+  - Regex để bắt email chắc chắn.  
+  - NER tập trung nhận diện tên.   
+
+- **Mở rộng thực thể**: trích xuất thêm **số điện thoại, LinkedIn, Github** để phục vụ tuyển dụng.  
+
+- **Active learning**: mô hình gợi ý nhãn cho CV mới, annotator chỉ cần chỉnh sửa → tiết kiệm công sức.  
+
+
 ## EX2 Ý tường đề xuất công nghệ chuyển đổi văn bản thành âm thanh nói (vietnamese).
 
+## 1. Giới thiệu
+- Text-to-Speech (TTS) là công nghệ chuyển văn bản thành giọng nói.  
+- Ý tưởng của em là xây dựng một mô hình TTS tiếng Việt có thể đọc văn bản tự nhiên, rõ ràng và dễ nghe.  
+- Ứng dụng: đọc sách, hỗ trợ người khiếm thị, trợ lý ảo,...
+
+
+## 2. Quy trình tổng quát
+1. **Chuẩn bị dữ liệu**  
+   - Thu thập dữ liệu giọng nói tiếng Việt (có transcript đi kèm).  
+   - Cần đủ nhiều giờ ghi âm, rõ ràng, ít tạp âm.  
+   - Có thể thu nhiều giọng khác nhau (Bắc, Trung, Nam).  
+
+2. **Xử lý văn bản (Text Normalization)**  
+   - Chuyển số → chữ: "2025" → "hai nghìn không trăm hai mươi lăm".  
+   - Chuẩn hoá ngày tháng, tiền tệ, viết tắt.  
+   - Xử lý tên riêng, tiếng Anh xen kẽ (nếu có).  
+
+3. **Mô hình hoá**  
+   - Dùng mô hình phổ biến như **FastSpeech2 + HiFi-GAN**:  
+     - FastSpeech2: biến văn bản thành đặc trưng giọng nói (mel-spectrogram).  
+     - HiFi-GAN: biến đặc trưng đó thành âm thanh thực tế.  
+   - Ưu điểm: nhanh, dễ triển khai.  
+
+4. **Huấn luyện mô hình**  
+   - Cho mô hình học từ cặp (văn bản, giọng đọc).  
+   - Dùng loss function để đo sai khác và tối ưu dần.  
+   - Kết quả: mô hình học được cách phát âm tiếng Việt.  
+
+5. **Đánh giá và cải thiện**  
+   - Đánh giá bằng cách nghe (Mean Opinion Score).  
+   - So sánh giọng đọc máy với giọng thật.  
+   - Nếu giọng đơn điệu: cần thêm dữ liệu giàu cảm xúc, hoặc thêm module dự đoán ngữ điệu.  
+
+
+## 3. Vấn đề có thể gặp
+- **Sai đọc số/ngày tháng** → Cần viết quy tắc chuẩn hoá tốt.  
+- **Giọng đọc phẳng, thiếu tự nhiên** → Thêm dữ liệu, dùng kỹ thuật kiểm soát ngữ điệu.  
+- **Dữ liệu không sạch (ồn, sai transcript)** → Lọc và kiểm tra kỹ dữ liệu trước khi train.  
+- **Khác biệt vùng miền (Bắc/Trung/Nam)** → Thêm nhãn vùng miền khi huấn luyện.  
+
+
+## 4. Kết luận
+- Với vai trò thực tập sinh, em đề xuất bắt đầu bằng mô hình **FastSpeech2 + HiFi-GAN** vì dễ huấn luyện và cho chất lượng khá tốt.  
+- Sau khi có bản cơ bản chạy được, có thể nâng cấp lên mô hình phức tạp hơn (ví dụ VITS) để có giọng tự nhiên hơn.  
+- Quan trọng nhất là phải có **dữ liệu sạch và đủ nhiều**.  
 
