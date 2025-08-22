@@ -345,7 +345,7 @@ ngrok start --all
 - **Trích xuất PDF chưa ổn định**: nhiều CV là dạng scan (ảnh) → text không đọc được, phải dùng OCR.  
 - **Tên tiếng Việt đa dạng**: có dấu/không dấu, nhiều họ kép hoặc tên dài → mô hình dễ nhầm.  
 - **Email bị che dấu**: ví dụ `abc [at] gmail [dot] com` → NER thường không nhận ra.  
-- **Dữ liệu hạn chế**: mô hình chưa tổng quát tốt (do có nhiều định dạng đuôi email khác nhau mà dữ liệu chưa có hoặc có mà ít)).  
+- **Dữ liệu hạn chế**: mô hình chưa tổng quát tốt (do có nhiều định dạng đuôi email khác nhau mà dữ liệu chưa có hoặc có mà ít).  
 
 ## Ý tưởng mở rộng
 - **OCR (Optical Character Recognition)**:  
